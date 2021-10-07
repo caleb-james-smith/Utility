@@ -1,0 +1,8 @@
+#!/bin/bash
+# compile latex using tdr and display PDF
+# use log file to see compile messages
+tdr --draft --style=note b | tee tdr.log
+pdf=$(awk '/PDF Output file/{print $4}' tdr.log)
+cp $pdf .
+rm tdr.log
+

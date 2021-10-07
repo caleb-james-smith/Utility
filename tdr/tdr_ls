@@ -1,0 +1,4 @@
+#!/bin/bash
+# list AN PDFs
+ls -lhtr /var/folders/jc/5sfh2b7n7m5899wvcj5zz0qm0000gn/T | grep tdr_bld
+

@@ -1,0 +1,14 @@
+#!/bin/bash
+#auto magically crop pdfs and png files
+input=$1
+output=$2
+if [ ${input: -4} == ".pdf" ]
+then
+    pdfcrop $input $output
+    #pdf-crop-margins -p 0 $input -o $output
+elif [ ${input: -4} == ".png" ]
+then
+     convert $input -flatten -fuzz 1% -trim +repage $output
+else
+    echo $input "is not a pdf or png file"
+fi
