@@ -1,0 +1,17 @@
+[user]
+    name = Caleb James Smith
+    email = colorado.caleb.smith@gmail.com
+    github = caleb-james-smith
+[color]
+    ui = auto
+[core]
+    editor = vim
+[push]
+    default = current
+[alias]
+    lol = log --graph --oneline
+    st = status
+    uno = status -uno
+    br = branch -v
+    re = remote -v
+    com = commit -m
