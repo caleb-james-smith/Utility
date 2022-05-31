@@ -25,6 +25,6 @@ elif [[ -d $path ]]; then
         pdfcrop $pdf_file
     done
 else
-    echo "ERROR: The path '$path' is not an file or directory."
+    echo "ERROR: The path '$path' is not a file or directory."
     exit 1
 fi

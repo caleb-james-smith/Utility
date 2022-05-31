@@ -27,6 +27,6 @@ elif [[ -d $path ]]; then
         sips -s format png  $pdf_file --out $png_file
     done
 else
-    echo "ERROR: The path '$path' is not an file or directory."
+    echo "ERROR: The path '$path' is not a file or directory."
     exit 1
 fi

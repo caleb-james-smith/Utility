@@ -10,5 +10,5 @@ elif [ ${input: -4} == ".png" ]
 then
      convert $input -flatten -fuzz 1% -trim +repage $output
 else
-    echo $input "is not a pdf or png file"
+    echo $input "is not a pdf or png file."
 fi
