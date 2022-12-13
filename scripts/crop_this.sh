@@ -1,6 +1,8 @@
 #!/bin/bash
-# pdf_to_png.sh
-# convert pdf files to png files
+# crop_this.sh
+# crop pdf files
+
+# TODO: add support for png files
 
 path=$1
 
@@ -12,9 +14,7 @@ path=$1
 if [[ -f $path ]]; then
     if [ ${path: -4} == ".pdf" ]; then
         pdf_file=$path
-        png_file="${pdf_file%.*}.png"
-        echo "Converting $pdf_file to $png_file"
-        sips -s format png  $pdf_file --out $png_file
+        pdfcrop $pdf_file
     else
         echo "ERROR: input file $path is not a .pdf file."
         exit 1
@@ -22,9 +22,7 @@ if [[ -f $path ]]; then
 elif [[ -d $path ]]; then 
     for pdf_file in $path/*.pdf
     do
-        png_file="${pdf_file%.*}.png"
-        echo "Converting $pdf_file to $png_file"
-        sips -s format png  $pdf_file --out $png_file
+        pdfcrop $pdf_file
     done
 else
     echo "ERROR: The path '$path' is not a file or directory."
