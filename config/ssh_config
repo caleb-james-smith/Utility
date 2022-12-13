@@ -1,0 +1,29 @@
+Host cmslpc*.fnal.gov
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Timeout 1w
+    Compression yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 10
+    TCPKeepAlive yes
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+Host login-el7.uscms.org
+    IdentityFile ~/.ssh/id_rsa
+Host *
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Timeout 1w
+    Compression yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 10
+    TCPKeepAlive yes
+    PubkeyAcceptedKeyTypes=+ssh-dss
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_ed25519
