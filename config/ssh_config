@@ -11,8 +11,22 @@ Host cmslpc*.fnal.gov
     TCPKeepAlive yes
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
+
 Host login-el7.uscms.org
     IdentityFile ~/.ssh/id_rsa
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+
+Host kucms*.phsx.ku.edu
+    IdentityFile ~/.ssh/id_ed25519
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+
+Host github.com
+    IdentityFile ~/.ssh/id_ed25519
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+
 Host *
     GSSAPIAuthentication yes
     GSSAPIDelegateCredentials yes
@@ -27,3 +41,4 @@ Host *
     PubkeyAcceptedKeyTypes=+ssh-dss
     AddKeysToAgent yes
     IdentityFile ~/.ssh/id_ed25519
+
