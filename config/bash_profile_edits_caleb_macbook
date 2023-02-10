@@ -1,0 +1,134 @@
+# ~/.bash_profile_edits
+
+# Caleb's Edits
+
+# Greetings, my son. Someday we could choose between a set of verses!
+echo "\"For I am not ashamed of the gospel,"
+echo "for it is the power of God for salvation to everyone who believes,"
+echo "to the Jew first and also to the Greek.\""
+echo " --- Romans 1:16"
+
+# edit and source bash edits
+alias ebash='vim ~/.bash_profile_edits'     # edit bash edits
+alias sbash='source ~/.bash_profile'        # source / update bash
+
+# When using bash-it, reload is better to use than sh ~/.bash_profile
+function cdl { cd $1; ls;}
+function cdla { cd $1; la;}
+alias df='df -h'
+alias ll='ls -lh'
+alias myip='curl http://ipecho.net/plain; echo'
+alias make='make -j8'
+alias enablePress='defaults write -g ApplePressAndHoldEnabled -bool true'
+alias disablePress='defaults write -g ApplePressAndHoldEnabled -bool false'
+alias tdr_env='eval $(utils/tdr runtime -sh)'
+alias gitdiff='git diff --color-words'
+alias gitdiff2='git diff --color-words --no-index'
+alias apps='cd /Applications'
+alias desk='cd ~/Desktop'
+alias docs='cd ~/Documents'
+alias down='cd ~/Downloads'
+alias text='cd ~/Documents/Academics/Textbooks'
+alias zinv='cd ~/CMS/analysis/zinvisible'
+alias syncrelval='rsync -av ~/CMS/relval/RelValMacro.C cjsmith@kodiak.baylor.edu:/data3/cjsmith/HcalRelVal/RatioPlots/CMSSW_7_5_3/src/Validation/CaloTowers/test/macros/RelValMacro.C'
+
+# Baylor
+alias kodiak='ssh -AtY cjsmith@kodiak.baylor.edu'
+alias kodiakremote='ssh -AtY caleb@cmslpc-sl7.fnal.gov ssh -AtY cjsmith@kodiak.baylor.edu ssh -AtY gpu002'
+alias hep5='ssh -AtY hep@hep05.baylor.edu -4'
+alias hep6='ssh -AtY -D 2050 hep@hep06.baylor.edu -4'
+alias ecsn2='fnal; ssh -AtY caleb@cmslpc-sl7.fnal.gov ssh -AtY cjsmith@kodiak.baylor.edu ssh -AtY ecsn002'
+
+# Kansas
+alias unl='ssh -Y calebsmith@t3.unl.edu'
+alias kucms='ssh -Y kucms@kucms.phsx.ku.edu'
+
+# Fermilab
+alias fnal='kinit caleb@FNAL.GOV'
+alias cmslpc='ssh -Y caleb@cmslpc-sl7.fnal.gov'
+alias cmslpc125='ssh -Y caleb@cmslpc125.fnal.gov'
+alias getPlots="rsync -avz caleb@cmslpc-sl7.fnal.gov:/uscms/home/caleb/nobackup/SusyAnalysis/CMSSW_9_4_4/src/ZInvisible/Tools/plots/ ."
+alias getTopPlots="rsync -avz -e 'ssh -A caleb@cmslpc-sl7.fnal.gov' :/uscms_data/d3/caleb/YOURWORKINGAREA/CMSSW_8_0_24_patch1/src/ZInvisible/Tools/top_plots /Users/caleb/CMS/analysis/zinvisible"
+
+# direcly to hcal4 and then onward
+alias hcal4='ssh -AtYK caleb@cmslpc-sl7.fnal.gov ssh -AtYK hcalpro@cmshcal4.fnal.gov'
+alias hcal4='ssh -AtYK hcalpro@cmsnghcal01.fnal.gov ssh -AtYK cmshcal4'
+alias hcal11='ssh -AtYK hcalpro@cmsnghcal01.fnal.gov ssh -AtYK cmshcal11'
+alias hcal12='ssh -AtYK hcalpro@cmsnghcal01.fnal.gov ssh -AtYK cmshcal12'
+alias nghcal='ssh -AtYK hcalpro@cmsnghcal01.fnal.gov'
+alias nghcaltunnel='ssh -AtYK -D 8008 hcalpro@cmsnghcal01.fnal.gov'
+alias pi3='ssh -AtYK hcalpro@cmshcal4.fnal.gov ssh -AtYK pi@pi3'
+alias pi5='ssh -AtYK hcalpro@cmshcal4.fnal.gov ssh -AtYK pi@pi5'
+alias pi6='ssh -AtYK hcalpro@cmshcal4.fnal.gov ssh -AtYK pi@pi6'
+alias pi7='ssh -AtYK hcalpro@cmshcal4.fnal.gov ssh -AtYK pi@pi7'
+
+# CERN
+alias cern='kinit caleb@CERN.CH'
+alias pi='ssh -Y pi@192.168.1.100'
+alias lxplus='ssh -AtY caleb@lxplus.cern.ch'
+alias kam='ssh caleb@lxplus.cern.ch -L 3306:cmskam05:3306'
+alias hcal2='ssh -AtY caleb@lxplus.cern.ch ssh -AtY daq@cmsph1hcal02'
+alias hcal13='ssh -AtY caleb@cmshcal13.cern.ch'
+# test beam H2
+alias daq='ssh -AtY -D 1050 daq@cmshcaltb02 -4'
+alias daqremote='ssh -AtY caleb@lxplus.cern.ch -L1050:localhost:1050 "ssh -AtY -D 1050 daq@cmshcaltb02 -4"'
+alias daqowner='ssh -AtY -D 1050 daqowner@cmshcaltb02 -4'
+alias daqownerremote='ssh -AtY caleb@lxplus.cern.ch -L1050:localhost:1050 "ssh -AtY -D 1050 daqowner@cmshcaltb02 -4"'
+# normal cms and cms904
+alias cms='ssh -AtY caleb@cmsusr'
+alias cmsremote='ssh -AtY caleb@lxplus.cern.ch ssh -AtY caleb@cmsusr'
+alias cms904='ssh -AtY caleb@cms904usr'
+alias cms904remote='ssh -AtY caleb@lxplus.cern.ch ssh -AtY caleb@cms904usr'
+# proxy -D cms and cms904
+alias rcms='ssh -AtY -D 1030 caleb@cmsusr -4'
+alias rcmsremote='ssh -AtY caleb@lxplus.cern.ch -L1030:localhost:1030 "ssh -AtY -D 1030 caleb@cmsusr -4"'
+alias rcms904='ssh -AtY -D 1040 caleb@cms904usr -4'
+alias rcms904remote='ssh -AtY caleb@lxplus.cern.ch -L1040:localhost:1040 "ssh -AtY -D 1040 caleb@cms904usr -4"'
+
+# Apps
+alias atom='open -a Atom'
+alias py='python'
+alias py2='python2'
+alias v='vim'
+alias emacs='emacs -nw'
+alias x='emacs'
+alias xcode='open -a Xcode'
+alias filemerge='open -a FileMerge'
+alias pycharm='open -a PyCharm\ CE'
+alias texshop='open -a TeXShop'
+alias root='root -l'
+alias groot='g++ $(root-config --glibs --cflags) -std=c++14 -g'
+alias show='open -a Preview'
+alias math='open -a Mathematica'
+alias safari='open -a Safari'
+alias chrome='open -a Google\ Chrome'
+alias firefox='open -a Firefox'
+alias pages='open -a Pages'
+alias numbers='open -a Numbers'
+alias keynote='open -a Keynote'
+alias word='open -a Microsoft\ Word'
+alias excel='open -a Microsoft\ Excel'
+alias powerpoint='open -a Microsoft\ PowerPoint'
+alias spotify='open -a Spotify'
+alias itunes='open -a iTunes'
+
+# enable color support
+alias grep='grep --color=auto'
+alias fgrep='fgrep --color=auto'
+alias egrep='egrep --color=auto'
+
+# Alias definitions.
+# You may want to put all your additions into a separate file like
+# ~/.bash_aliases, instead of adding them here directly.
+# See /usr/share/doc/bash-doc/examples in the bash-doc package.
+
+if [ -f ~/.bash_aliases ]; then
+. ~/.bash_aliases
+fi
+
+# enable programmable completion features (you don't need to enable
+# this, if it's already enabled in /etc/bash.bashrc and /etc/profile
+# sources /etc/bash.bashrc).
+if [ -f /etc/bash_completion ] && ! shopt -oq posix; then
+. /etc/bash_completion
+fi

@@ -1,0 +1,85 @@
+# ~/.bash_profile
+
+if [ -f ~/.bash_profile_edits ]; then
+  source ~/.bash_profile_edits
+fi
+
+# .bashrc
+if [ -f ~/.bashrc ]; then
+  . ~/.bashrc
+fi
+
+# silence default shell warning
+# https://support.apple.com/en-us/HT208050
+export BASH_SILENCE_DEPRECATION_WARNING=1
+
+# root6 setup using softlink
+# . /usr/local/Cellar/root/6.14.04_2/bin/thisroot.sh
+# ln -s /usr/local/Cellar/root/6.14.04_2/bin/thisroot.sh /usr/local/bin/thisroot.sh 
+#. /usr/local/bin/thisroot.sh
+
+
+## Appearance
+# MAC settings: http://osxdaily.com/2012/02/21/add-color-to-the-terminal-in-mac-os-x/
+
+#export PS1="\[\e[38;5;33m\]\\[\e[1m\]\u\[\e[m\]@\[\e[1;32m\]\h \[\e[m\]\[\e[1;31m\]\W>\[\e[m\] "
+#export PS1="\[\033[32m\][\W]\[\033[33;36m\]: \[\033[m\]"
+export PS1='\[\033[32m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
+
+export CLICOLOR=1
+export LSCOLORS=gxBxhxDxCxhxhxhxhxcxcx
+
+##
+# Your previous /Users/$USER/.bash_profile file was backed up as /Users/$USER/.bash_profile.macports-saved_2015-10-30_at_17:32:24
+##
+
+# Enables django.setup() in python.
+#export DJANGO_SETTINGS_MODULE=mysite.settings
+export DJANGO_SETTINGS_MODULE=xml_database.settings
+
+# MacPorts Installer addition on 2015-10-30_at_17:32:24: adding an appropriate PATH variable for use with MacPorts.
+export PATH=/opt/local/bin:/opt/local/sbin:$PATH
+# Finished adapting your PATH environment variable for use with MacPorts.
+
+# brew
+export PATH=/usr/local/bin:/usr/local/sbin:$PATH
+
+# home bin
+export PATH=/Users/caleb/bin:$PATH
+
+# Setting PATH for Python 3.4
+# The orginal version is saved in .bash_profile.pysave
+#PATH="/Library/Frameworks/Python.framework/Versions/3.4/bin:${PATH}"
+#export PATH=/Users/$USER/Library/Enthought/Canopy_64bit/User/bin:$PATH
+export PATH="/usr/local/opt/python/libexec/bin:$PATH"
+
+# Added by Canopy installer on 2015-11-05
+# VIRTUAL_ENV_DISABLE_PROMPT can be set to '' to make bashprompt show that Canopy is active, otherwise 1
+#VIRTUAL_ENV_DISABLE_PROMPT=1
+#source '/Users/$USER/Library/Enthought/Canopy_64bit/User/bin/activate'
+
+#export ROOTSYS=/Users/$USER/Downloads/root6
+
+# Setup environment for ROOT
+export PYTHONDIR=/usr/local/opt/python
+export ROOTSYS=/Users/caleb/Downloads/root6
+export LD_LIBRARY_PATH=$ROOTSYS/lib:$PYTHONDIR/lib/:$LD_LIBRARY_PATH
+export PATH=$ROOTSYS/bin:$PATH
+export PYTHONPATH=$ROOTSYS/lib:$PYTHONPATH
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/caleb/opt/anaconda3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/caleb/opt/anaconda3/etc/profile.d/conda.sh" ]; then
+        . "/Users/caleb/opt/anaconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/caleb/opt/anaconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
