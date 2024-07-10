@@ -1,6 +1,9 @@
 #!/bin/bash
 # pdf_to_png.sh
+
 # convert pdf files to png files
+# - The first version of this script used "sips."
+# - The second (current) version of this script uses "magick."
 
 path=$1
 
@@ -14,7 +17,8 @@ if [[ -f $path ]]; then
         pdf_file=$path
         png_file="${pdf_file%.*}.png"
         echo "Converting $pdf_file to $png_file"
-        sips -s format png  $pdf_file --out $png_file
+        #sips -s format png  $pdf_file --out $png_file
+        magick -density 300 $pdf_file -trim $png_file
     else
         echo "ERROR: input file $path is not a .pdf file."
         exit 1
@@ -24,7 +28,8 @@ elif [[ -d $path ]]; then
     do
         png_file="${pdf_file%.*}.png"
         echo "Converting $pdf_file to $png_file"
-        sips -s format png  $pdf_file --out $png_file
+        #sips -s format png  $pdf_file --out $png_file
+        magick -density 300 $pdf_file -trim $png_file
     done
 else
     echo "ERROR: The path '$path' is not a file or directory."
