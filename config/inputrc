@@ -1,0 +1,11 @@
+#Allow search based on partial input.
+### Arrow Up
+"\e[A": history-search-backward
+### Arrow Down
+"\e[B": history-search-forward
+##set show-all-if-ambiguous on
+##set completion-ignore-case on
+"\e[1;5D": beginning-of-line
+"\e[1;5C": end-of-line
+"\e[1;5A": 'cd ..\015'
+"\e[1;5B": 'cd -\015'

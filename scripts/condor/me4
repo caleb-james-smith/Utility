@@ -1,0 +1,39 @@
+#!/bin/bash
+
+echo "    _____                _             _____ _               _      " 
+echo "   / ____|              | |           / ____| |             | |     " 
+echo "  | |     ___  _ __   __| | ___  _ __| |    | |__   ___  ___| | __  " 
+echo "  | |    / _ \\| '_ \\ / _\` |/ _ \\| '__| |    | '_ \\ / _ \\/ __| |/ /  " 
+echo "  | |___| (_) | | | | (_| | (_) | |  | |____| | | |  __/ (__|   <   " 
+echo "   \\_____\\___/|_| |_|\\__,_|\\___/|_|   \\_____|_| |_|\\___|\\___|_|\\_\\  " 
+echo ""
+echo Condor status for $USER:
+echo ""
+
+# The cmslpc condor schedulers are now lpcschedd3, lpcschedd4, and lpcschedd5.
+                                                                                                                       
+condor_q | awk -v user="$USER" '
+
+    BEGIN{FS="."; l=0; b=0; j=0; batch[0]=0; jobs[0]=0} $0 ~ user{
+
+        if ( $0 ~ /Total for/ ){ l++; FS=":"; $0=$0; printf( "\nlpcschedd %s: %s \n ", l+2, $2 ); FS="."; jobs[b]=j; 
+
+            if (b != 0){print "   │"}
+
+            for ( i=1;i<=b;i++ ){
+
+                if ( i <= b-1 ){ printf( "    ├──────" ) }
+
+                else {printf ( "    └──────" ) }
+
+                printf ("Submission %s: %s jobs \n", batch[i], jobs[i]) }; "jobs"; b=0; j=0 }
+
+        else if ( batch[b] != $1 ){ jobs[b]=j; b++; batch[b]=$1; j=1 }
+
+        else { j++ }
+
+    }
+
+    END{print "\n"}
+
+'
