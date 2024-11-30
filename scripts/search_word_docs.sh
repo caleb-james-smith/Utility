@@ -30,7 +30,9 @@ mkdir -p ${TEMP_DIR}
 for file in *.docx; do
     # confirm that file exists; fixes issue when no files are present
     if [[ -f "$file" ]]; then
+        # remove extension from file name
         name="${file%.*}"
+        
         #echo " - Processing file: ${file}; name: ${name}"
         mkdir -p ${TEMP_DIR}/${name}
         cd ${TEMP_DIR}/${name}
