@@ -7,17 +7,36 @@
 # input:  text pattern
 # output: file names and file count for the MS Word files that contain the given pattern
 
+# Example:
+# ./search_word_docs.sh SomePattern
+
 PATTERN=$1
 NUM_MATCHING_FILES=0
+TEMP_DIR=search_temp
 
-echo "Searching all Word documents in the current directory for the pattern '${PATTERN}'."
+# create temporary directory
+mkdir -p ${TEMP_DIR}
+
+echo "Searching Word documents for the pattern '${PATTERN}'."
 
 # loop over Word files
 for file in *.docx; do
-    echo $file
+    # confirm that file exists; fixes issue when no files are present
+    if [[ -f "$file" ]]; then
+        name="${file%.*}"
+        echo " - Processing file: ${file}; name: ${name}"
+        mkdir -p ${TEMP_DIR}/${name}
+        cd ${TEMP_DIR}/${name}
+        unzip ../../${file}
+        grep -i ${PATTERN} word/*.xml | wc -l
+        cd ../..
+    fi
 done
 
 echo "Number of matching files: ${NUM_MATCHING_FILES}"
+
+# remove temporary directory
+rm -r ${TEMP_DIR}
 
 echo "Done!"
 
