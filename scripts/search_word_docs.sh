@@ -12,9 +12,9 @@
 
 PATTERN=$1
 NUM_MATCHING_FILES=0
-TEMP_DIR=search_temp
+TEMP_DIR="search_temp"
 
-# Check if PATTERN is empty.
+# check if PATTERN is empty
 if [[ -z "$PATTERN" ]]; then
     echo "ERROR: PATTERN is empty."
     echo "Please provide a pattern to search for as the first argument."
@@ -24,7 +24,7 @@ fi
 echo "Searching Word documents for the pattern '${PATTERN}' (case insensitive)."
 
 # create temporary directory
-mkdir -p ${TEMP_DIR}
+mkdir -p "${TEMP_DIR}"
 
 # loop over Word files
 for file in *.docx; do
@@ -33,10 +33,12 @@ for file in *.docx; do
         # remove extension from file name
         name="${file%.*}"
         
+        # create directory and unzip file
+        # Important: Use quotes to support file names that contain white space!
         #echo " - Processing file: ${file}; name: ${name}"
-        mkdir -p ${TEMP_DIR}/${name}
-        cd ${TEMP_DIR}/${name}
-        unzip -qq ../../${file}
+        mkdir -p "${TEMP_DIR}/${name}"
+        cd "${TEMP_DIR}/${name}"
+        unzip -qq "../../${file}"
         
         # use grep and wc to find number of lines
         # containing the pattern in xml files
@@ -60,7 +62,7 @@ else
 fi
 
 # remove temporary directory
-rm -r ${TEMP_DIR}
+rm -r "${TEMP_DIR}"
 
 echo "Done!"
 
