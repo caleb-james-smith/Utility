@@ -27,8 +27,12 @@ for file in *.docx; do
         echo " - Processing file: ${file}; name: ${name}"
         mkdir -p ${TEMP_DIR}/${name}
         cd ${TEMP_DIR}/${name}
-        unzip ../../${file}
-        grep -i ${PATTERN} word/*.xml | wc -l
+        unzip -qq ../../${file}
+        num_matches=$(grep -i ${PATTERN} word/*.xml | wc -l)
+        echo "Number of matches: ${num_matches}"
+        if (( $num_matches > 0)); then
+            NUM_MATCHING_FILES=$((NUM_MATCHING_FILES + 1))
+        fi
         cd ../..
     fi
 done
