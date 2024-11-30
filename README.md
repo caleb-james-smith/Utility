@@ -26,6 +26,6 @@ The script `search_word_docs.sh` searches all MS Word documents in the current d
 In each Word file, the script searches the body, footnotes, endnotes, etc. for the pattern.
 The script unzips each Word file and then greps the xml files to search for the pattern.
 ```
-./search_word_docs.sh SomePattern
+search_word_docs.sh SomePattern
 ```
 
