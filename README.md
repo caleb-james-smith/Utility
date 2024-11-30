@@ -10,12 +10,12 @@ git clone git@github.com:caleb-james-smith/Utility.git
 ln -s Utility/scripts/* .
 ```
 
-Make sure that your ~/bin directory is in your PATH.
+Make sure that your `~/bin` directory is in your `PATH`.
 For example, on macOS, you can add this line to `~/.bash_profile` (replace <user_name> with your user name):
 ```
 export PATH="/Users/<user_name>/bin:$PATH"
 ```
-Then, you can source `~/.bash_profile`:
+Then, you can `source ~/.bash_profile`:
 ```
 source ~/.bash_profile
 ```
