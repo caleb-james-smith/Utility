@@ -33,12 +33,8 @@ for file in *.docx; do
 
         # skip temporary Word files: files that start with ~$
         if [[ "$file" == '~$'* ]]; then
-            echo "Check 1: The file ${file} starts with '~$'."
-        fi
-        
-        # skip temporary Word files: files that start with ~$
-        if [[ "$file" =~ ^~\$ ]]; then
-            echo "Check 2: The file ${file} starts with '~$'."
+            echo " - Skipping the file '${file}' because it starts with '~$'"
+            continue
         fi
 
         # remove extension from file name
@@ -46,7 +42,7 @@ for file in *.docx; do
         
         # create directory and unzip file
         # Important: Use quotes to support file names that contain white space!
-        echo " - Processing file: ${file}; name: ${name}"
+        echo " - Processing file: '${file}'; name: '${name}'"
         mkdir -p "${TEMP_DIR}/${name}"
         cd "${TEMP_DIR}/${name}"
         unzip -qq "../../${file}"
