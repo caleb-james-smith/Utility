@@ -21,6 +21,8 @@ if [[ -z "$PATTERN" ]]; then
     exit 1
 fi
 
+echo "Bonjour, ${USER}!"
+
 echo "Searching Word documents for the pattern '${PATTERN}' (case insensitive)."
 
 # create temporary directory
@@ -30,10 +32,9 @@ mkdir -p "${TEMP_DIR}"
 for file in *.docx; do
     # confirm that file exists; fixes issue when no files are present
     if [[ -f "$file" ]]; then
-
         # skip temporary Word files: files that start with ~$
         if [[ "$file" == '~$'* ]]; then
-            echo " - Skipping the file '${file}' because it starts with '~$'"
+            #echo " - Skipping the file '${file}' because it starts with '~$'"
             continue
         fi
 
@@ -42,7 +43,7 @@ for file in *.docx; do
         
         # create directory and unzip file
         # Important: Use quotes to support file names that contain white space!
-        echo " - Processing file: '${file}'; name: '${name}'"
+        #echo " - Processing file: '${file}'; name: '${name}'"
         mkdir -p "${TEMP_DIR}/${name}"
         cd "${TEMP_DIR}/${name}"
         unzip -qq "../../${file}"
