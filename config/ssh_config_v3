@@ -1,0 +1,94 @@
+# Global settings 
+Host *
+  ControlMaster auto
+  ControlPath ~/.ssh/sockets/%r@%h-%p
+  ControlPersist 600
+  ServerAliveInterval 240
+
+# CMS LPC at FNAL (cmslpc)
+# Specify a specific node to use in Visual Studio Code
+Host cmslpc*.fnal.gov cmslpc-sl7.fnal.gov cmslpc-el8.fnal.gov cmslpc-el9.fnal.gov
+    User caleb
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Timeout 1w
+    Compression yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 10
+    TCPKeepAlive yes
+    StrictHostKeyChecking no
+    UserKnownHostsFile /dev/null
+
+# lxplus at CERN
+Host lxplus
+	User caleb
+	HostName lxplus.cern.ch
+
+Host *.cern.ch
+    User caleb
+
+# cmsusr network access
+Host cmsusr cmsusr* cmsusr*.cms
+    # Specify the remote username if different from your local one
+    User caleb
+    # Use SSHv2 only
+    Protocol 2
+    # Forward your SSH key agent so that it can be used on further hops
+    ForwardAgent yes
+    # For X11
+    ForwardX11 yes
+    ForwardX11Trusted yes
+    
+    # Go through lxplus so that it works from wherever you are
+    ProxyCommand ssh lxplus nc %h 22
+    
+    # Setup a SOCKS5 proxy on a local port so that you can easily browse internal CMS web sites
+    DynamicForward 1030
+
+# CMS connect
+Host login.uscms.org login-el7.uscms.org
+    IdentityFile ~/.ssh/id_rsa
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+
+# Specify hosts to use in Visual Studio Code 
+Host kucms.phsx.ku.edu kucms-01.phsx.ku.edu kucms-02.phsx.ku.edu 
+    User kucms
+    IdentityFile ~/.ssh/id_ed25519
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+
+Host raspberrypi.local
+    User pi
+    IdentityFile ~/.ssh/id_ed25519
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+
+Host github.com
+    IdentityFile ~/.ssh/id_ed25519
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+
+Host gitlab.cern.ch
+    IdentityFile ~/.ssh/id_ed25519
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+
+Host *
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Timeout 1w
+    Compression yes
+    ServerAliveInterval 30
+    ServerAliveCountMax 10
+    TCPKeepAlive yes
+    PubkeyAcceptedKeyTypes=+ssh-dss
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_ed25519
+
