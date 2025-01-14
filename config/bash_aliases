@@ -1,0 +1,67 @@
+# ~/.bash_aliases
+
+alias sbash='source ~/.bash_profile'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias ll='ls -lh'
+alias v='vim'
+alias x='emacs -nw'
+alias show='open -a Preview'
+alias myip='curl http://ipecho.net/plain; echo'
+alias tar_x='tar -xvf'
+alias tar_c='tar -cvf'
+alias tar_xz='tar -xzvf'
+alias tar_cz='tar -czvf'
+alias gitdiff='git diff --color-words'
+alias gitdiff2='git diff --color-words --no-index'
+alias gl='echo "Good luck!"'
+alias hf='echo "Have fun!"'
+alias gg='echo "Good game!"'
+alias wp='echo "Well played!"'
+alias glhf='echo "Good luck, have fun!"'
+alias ggwp='echo "Good game, well played!"'
+alias lol='echo ERROR: File system not found.'
+
+# Home
+#alias pi='ssh -Y pi@192.168.1.100'
+alias pi='ssh -Y pi@raspberrypi.local'
+
+# Kansas
+alias kucms='ssh -Y kucms@kucms.phsx.ku.edu'
+alias kucms-01='ssh -Y kucms@PHSX-kucms-01.phsx.ku.edu'
+alias kucms-01-caleb='ssh -Y c704s457@PHSX-kucms-01.phsx.ku.edu'
+alias kucms-02='ssh -Y kucms@PHSX-kucms-02.phsx.ku.edu'
+alias unl='ssh -Y calebsmith@t3.unl.edu'
+
+# Fermilab
+alias fnal='kinit caleb@FNAL.GOV'
+alias cmslpc-sl7='ssh -Y caleb@cmslpc-sl7.fnal.gov'
+alias cmslpc-el8='ssh -Y caleb@cmslpc-el8.fnal.gov'
+alias cmslpc-el9='ssh -Y caleb@cmslpc-el9.fnal.gov'
+alias cmslpc-el8-tunnel='ssh -Y caleb@cmslpc-el8.fnal.gov -L8765:localhost:8765 -L8787:localhost:8787'
+
+alias cmslpc120='ssh -Y caleb@cmslpc120.fnal.gov'
+alias cmslpc125='ssh -Y caleb@cmslpc125.fnal.gov'
+alias cmslpc220='ssh -Y caleb@cmslpc220.fnal.gov'
+alias cmslpc225='ssh -Y caleb@cmslpc225.fnal.gov'
+alias cmslpc320='ssh -Y caleb@cmslpc320.fnal.gov'
+alias cmslpc325='ssh -Y caleb@cmslpc325.fnal.gov'
+
+# CERN
+alias cern='kinit caleb@CERN.CH'
+alias lxplus='ssh -Y caleb@lxplus.cern.ch'
+alias lxplus950='ssh -Y caleb@lxplus950.cern.ch'
+alias lxplus960='ssh -Y caleb@lxplus960.cern.ch'
+alias cmsusr='ssh -Y caleb@cmsusr'
+alias fpix='ssh -Y local14chstack@fpixp1hc'
+alias cmxitpc5='ssh -Y bootcamp@cmxitpc5'
+alias remote_cmsusr='ssh -tt -Y caleb@lxplus.cern.ch ssh -tt -Y caleb@cmsusr'
+alias remote_fpix='ssh -tt -Y caleb@lxplus.cern.ch ssh -tt -Y local14chstack@fpixp1hc'
+alias remote_cmsusr_tunnel='ssh -tt -Y caleb@lxplus.cern.ch -L1030:localhost:1030 "ssh -tt -Y -D 1030 caleb@cmsusr -4"'
+alias remote_fpix_tunnel='ssh -tt -Y caleb@lxplus.cern.ch -L1040:localhost:1040 "ssh -tt -Y -D 1040 local14chstack@fpixp1hc -4"'
+alias remote_pixel_dcs='ssh -Y -l caleb -C -L 9999:cerntscms.cern.ch:3389 lxplus.cern.ch'
+
+# CMS Connect
+#alias connect='ssh -Y caleb@login-el7.uscms.org'
+alias connect='ssh -Y caleb@login.uscms.org'
+
