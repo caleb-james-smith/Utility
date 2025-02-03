@@ -19,7 +19,6 @@ Host cmslpc*.fnal.gov cmslpc-sl7.fnal.gov cmslpc-el8.fnal.gov cmslpc-el9.fnal.go
     ServerAliveInterval 60
     ServerAliveCountMax 10
     TCPKeepAlive yes
-    KeepAlive yes
     StrictHostKeyChecking no
     UserKnownHostsFile /dev/null
 
@@ -92,7 +91,6 @@ Host *
     ServerAliveInterval 60
     ServerAliveCountMax 10
     TCPKeepAlive yes
-    KeepAlive yes
     PubkeyAcceptedKeyTypes=+ssh-dss
     AddKeysToAgent yes
     IdentityFile ~/.ssh/id_ed25519
