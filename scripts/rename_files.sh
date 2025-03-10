@@ -1,15 +1,15 @@
 #!/bin/bash
 # rename_files.sh 
 
-# Input: input directory and file extension
-# Output: renames files with specific extension in directory
+# Inputs: input directory, file extension, and prefix
+# Output: adds prefix to matching files (files in directory with extension)
 
 # Example:
-# ./rename_files.sh directory extension
+# ./rename_files.sh directory extension prefix
 
 INPUT_DIR=$1
 EXTENSION=$2
-PREFIX="OLL_"
+PREFIX=$3
 
 # Check if INPUT_DIR is empty
 if [[ -z "$INPUT_DIR" ]]; then
@@ -22,6 +22,13 @@ fi
 if [[ -z "$EXTENSION" ]]; then
     echo "ERROR: EXTENSION is empty."
     echo "Please provide a file extension as the second argument."
+    exit 1
+fi
+
+# Check if PREFIX is empty
+if [[ -z "$PREFIX" ]]; then
+    echo "ERROR: PREFIX is empty."
+    echo "Please provide a prefix as the third argument."
     exit 1
 fi
 
