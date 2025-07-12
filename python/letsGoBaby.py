@@ -18,14 +18,17 @@ def runBabyCalc():
     pregnancy_duration = due_date_object - conception_date_object
     completed_duration = today_date_object - conception_date_object
     remaining_duration = due_date_object - today_date_object
+
+    completed_percent = 100 * (completed_duration / pregnancy_duration)
+    remaining_percent = 100 * (remaining_duration / pregnancy_duration)
     
     # Print results
     print(f" - Conception date: {conception_date}")
     print(f" - Today's date: {today_date}")
     print(f" - Due date: {due_date}")
     print(f" - Pregnancy duration: {pregnancy_duration.days/7:.2f} weeks = {pregnancy_duration.days} days")
-    print(f" - Completed duration: {completed_duration.days/7:.2f} weeks = {completed_duration.days} days")
-    print(f" - Remaining duration: {remaining_duration.days/7:.2f} weeks = {remaining_duration.days} days")
+    print(f" - Completed duration: {completed_duration.days/7:.2f} weeks = {completed_duration.days} days ({completed_percent:.1f} %)")
+    print(f" - Remaining duration: {remaining_duration.days/7:.2f} weeks = {remaining_duration.days} days ({remaining_percent:.1f} %)")
 
 def getConceptionDateObject(conception_date, date_format):
     conception_date_object = datetime.datetime.strptime(conception_date, date_format)
