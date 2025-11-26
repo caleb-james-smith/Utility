@@ -1,5 +1,6 @@
 import os
 import sys
+import shutil
 from pathlib import Path
 from datetime import datetime
 
@@ -7,6 +8,17 @@ from datetime import datetime
 def makeDir(dir_name):
     if not os.path.exists(dir_name):
         os.makedirs(dir_name)
+
+# move file if it exists; if not, print error and exit
+def moveFile(source, destination):
+    print("Moving file...")
+    print(f" - source: {source}")
+    print(f" - destination: {destination}")
+    try:
+        shutil.move(source, destination)
+    except FileNotFoundError:
+        print(f"ERROR: Cannot move the file '{source}' as it was not found.")
+        sys.exit(1)
 
 # get list of all files (excluding directories) in a directory
 def getFilesInDir(dir_name):

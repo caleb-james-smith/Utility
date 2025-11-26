@@ -21,8 +21,11 @@ def organizeFilesByYear(directory):
     print(f"n_files: {n_files}")
     print(files)
     for file in files:
-        path = directory + file
-        year = tools.getModificationYear(path)
+        file_path = directory + file
+        year = str(tools.getModificationYear(file_path))
+        dir_for_year = directory + year
+        tools.makeDir(dir_for_year)
+        tools.moveFile(file_path, dir_for_year)
 
 if __name__ == "__main__":
     main()
