@@ -11,9 +11,9 @@ def makeDir(dir_name):
 
 # move file if it exists; if not, print error and exit
 def moveFile(source, destination):
-    print("Moving file...")
-    print(f" - source: {source}")
-    print(f" - destination: {destination}")
+    # print("Moving file...")
+    # print(f" - source: {source}")
+    # print(f" - destination: {destination}")
     try:
         shutil.move(source, destination)
     except FileNotFoundError:
