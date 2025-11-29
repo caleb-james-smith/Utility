@@ -19,7 +19,6 @@ def organizeFilesByYear(directory):
     files = tools.getFilesInDir(directory)
     n_files = len(files)
     print(f"n_files: {n_files}")
-    print(files)
     for file in files:
         file_path = directory + file
         year = str(tools.getModificationYear(file_path))
