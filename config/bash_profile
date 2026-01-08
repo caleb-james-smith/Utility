@@ -1,0 +1,74 @@
+# ~/.bash_profile
+
+# prompt
+export PS1='\[\033[32m\]\h\[\033[01;34m\] \W \$\[\033[00m\] '
+
+# ls colors info
+# https://stackoverflow.com/questions/1550288/os-x-terminal-colors
+# http://www.marinamele.com/2014/05/customize-colors-of-your-terminal-in-mac-os-x.html
+# https://www.cyberciti.biz/faq/apple-mac-osx-terminal-color-ls-output-option/
+# https://apple.stackexchange.com/questions/33677/how-can-i-configure-mac-terminal-to-have-color-ls-output
+# https://stackoverflow.com/questions/1550288/os-x-terminal-colors
+
+# ls colors
+export CLICOLOR=1
+#export LSCOLORS=ExGxFxdxCxDxDxxbaDecac
+#export LSCOLORS=ExGxBxDxCxEgEdxbxgxcxd
+export LSCOLORS=GxFxCxDxBxegedabagaced
+
+# homebrew
+eval $(/opt/homebrew/bin/brew shellenv)
+
+# scripts
+export PATH="/Users/caleb/bin:$PATH"
+
+# TeX
+export PATH="/Library/TeX/texbin:$PATH"
+
+# mise
+eval "$(~/.local/bin/mise activate bash)"
+
+# java
+#export PATH="/opt/homebrew/opt/openjdk/bin:$PATH"
+#export CPPFLAGS="-I/opt/homebrew/opt/openjdk/include"
+
+# root
+export PATH="/usr/local/root/bin:$PATH"
+export PYTHONPATH=/usr/local/root/lib
+export LD_LIBRARY_PATH=/usr/local/root/lib
+
+# aliases
+if [ -f ~/.bash_aliases ]; then
+    . ~/.bash_aliases
+fi
+
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/Users/caleb/miniforge3/bin/conda' 'shell.bash' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/Users/caleb/miniforge3/etc/profile.d/conda.sh" ]; then
+        . "/Users/caleb/miniforge3/etc/profile.d/conda.sh"
+    else
+        export PATH="/Users/caleb/miniforge3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
+# Setting PATH for Python 2.7
+# The original version is saved in .bash_profile.pysave
+PATH="/Library/Frameworks/Python.framework/Versions/2.7/bin:${PATH}"
+export PATH
+
+. "$HOME/.cargo/env"
+
+
+# Added by Toolbox App
+export PATH="$PATH:/Users/caleb/Library/Application Support/JetBrains/Toolbox/scripts"
+
+
+# Added by Antigravity
+export PATH="/Users/caleb/.antigravity/antigravity/bin:$PATH"
