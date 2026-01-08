@@ -1,0 +1,18 @@
+" issue: when using autoindent (set ai) and (filetype plugin indent on), pasting from buffer can make extra spaces/tabs
+" solution: use (set paste) before pasting and (set nopaste) when you are done
+syntax enable
+colorscheme delek
+set background=dark
+hi Search ctermfg=White ctermbg=Blue
+autocmd FileType * setlocal formatoptions-=cro
+nnoremap <silent> <Space> :noh<Bar>:echo<CR>
+filetype plugin indent on
+set number
+set nowrap
+set hls
+set ai
+set sw=4
+set ts=4
+set showtabline=2
+set expandtab
+set smarttab

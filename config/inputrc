@@ -1,0 +1,5 @@
+#Allow search based on partial input.
+## Arrow Up
+"\e[A": history-search-backward
+## Arrow Down
+"\e[B": history-search-forward
