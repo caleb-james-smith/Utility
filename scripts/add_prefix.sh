@@ -1,11 +1,11 @@
 #!/bin/bash
-# rename_files.sh 
+# add_prefix.sh 
 
 # Inputs: input directory, file extension, and prefix
 # Output: adds prefix to matching files (files in directory with extension)
 
 # Example:
-# ./rename_files.sh directory extension prefix
+# ./add_prefix.sh directory extension prefix
 
 INPUT_DIR=$1
 EXTENSION=$2
