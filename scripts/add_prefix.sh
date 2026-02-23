@@ -4,8 +4,14 @@
 # Inputs: input directory, file extension, and prefix
 # Output: adds prefix to matching files (files in directory with extension)
 
-# Example:
+# Syntax:
 # ./add_prefix.sh directory extension prefix
+
+# Example:
+# ./add_prefix.sh images png oll_
+# 01.png ---> oll_01.png
+# 02.png ---> oll_02.png
+# 03.png ---> oll_03.png
 
 INPUT_DIR=$1
 EXTENSION=$2
@@ -50,8 +56,9 @@ cd ${INPUT_DIR}
 for file in *.${EXTENSION}; do
     # Confirm that file exists; fixes issue when no files are present.
     if [[ -f "$file" ]]; then
+        # Add prefix to file name
         echo " - Moving ${file} to ${PREFIX}${file}"
-        mv ${file} ${PREFIX}${file}
+        mv "${file}" "${PREFIX}${file}"
     fi
 done
 
