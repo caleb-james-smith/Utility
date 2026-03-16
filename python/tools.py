@@ -1,4 +1,5 @@
 import os
+import json
 import sys
 import shutil
 from pathlib import Path
@@ -45,3 +46,21 @@ def appendSlash(path):
     if path[-1] != slash:
         path += slash
     return path
+
+def readJson(filename):
+    try:
+        with open(filename, "r", encoding="utf-8") as file:
+            data = json.load(file)
+        return data
+    except FileNotFoundError:
+        print(f"Error: File '{filename}' was not found.")
+        raise
+    except json.JSONDecodeError as e:
+        print(f"Error: Failed to decode JSON in '{filename}'.")
+        print(f"Details: {e}")
+        raise
+    except Exception as e:
+        print(f"Error: Unexpected error while reading '{filename}'.")
+        print(f"Details: {e}")
+        raise
+
