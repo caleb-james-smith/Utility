@@ -63,4 +63,3 @@ def readJson(filename):
         print(f"Error: Unexpected error while reading '{filename}'.")
         print(f"Details: {e}")
         raise
-

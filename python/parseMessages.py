@@ -1,5 +1,4 @@
 import argparse
-import json
 import sys
 import tools
 
@@ -23,18 +22,27 @@ def main():
     parseMessages(input_file, output_file)
 
 def parseMessages(input_file, output_file):
+    print(f"Reading data from {input_file}")
     try:
         data = tools.readJson(input_file)
     except Exception:
         print(f"Failed to read JSON file '{input_file}'.")
+    
+    print(f"Writing data to {output_file}")
+    n_messages = 0
+    separator = "-" * 20
+    with open(output_file, "w") as file:
+        file.write(separator + "\n")
+        for entry in data:
+            n_messages += 1
 
-    print("-" * 20)
-    for entry in data:
-        # print("user: {0}".format(entry["userName"]))
-        print(entry["userName"])
-        print()
-        print(entry["content"])
-        print("-" * 20)
+            # Write message to output file
+            file.write(entry["userName"] + "\n")
+            file.write("\n")
+            file.write(entry["content"] + "\n")
+            file.write(separator + "\n")
+    
+    print(f"Number of messages: {n_messages}")
 
 if __name__ == "__main__":
     main()
