@@ -28,5 +28,13 @@ def parseMessages(input_file, output_file):
     except Exception:
         print(f"Failed to read JSON file '{input_file}'.")
 
+    print("-" * 20)
+    for entry in data:
+        # print("user: {0}".format(entry["userName"]))
+        print(entry["userName"])
+        print()
+        print(entry["content"])
+        print("-" * 20)
+
 if __name__ == "__main__":
     main()
