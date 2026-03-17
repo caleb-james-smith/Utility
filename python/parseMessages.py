@@ -27,8 +27,12 @@ def parseMessages(input_file, output_file):
         data = tools.readJson(input_file)
     except Exception:
         print(f"Failed to read JSON file '{input_file}'.")
+        return
     
     print(f"Writing data to {output_file}")
+    writeMessages(data, output_file)
+
+def writeMessages(data, output_file):
     n_messages = 0
     separator = "-" * 20
     with open(output_file, "w") as file:
