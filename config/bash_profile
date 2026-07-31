@@ -19,8 +19,9 @@ export LSCOLORS=GxFxCxDxBxegedabagaced
 # homebrew
 eval $(/opt/homebrew/bin/brew shellenv)
 
-# scripts
-export PATH="/Users/caleb/bin:$PATH"
+# bin paths
+export PATH="$HOME/.local/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 
 # TeX
 export PATH="/Library/TeX/texbin:$PATH"
