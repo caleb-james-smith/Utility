@@ -1,0 +1,31 @@
+# ~/.bash_aliases
+
+alias sbash='source ~/.bash_profile'
+alias ls='ls --color=auto'
+alias grep='grep --color=auto'
+alias ll='ls -lh'
+alias la='ls -lha'
+alias lr='ls -lhtr'
+alias n='nano'
+alias v='vim'
+alias x='emacs -nw'
+alias show='open -a Preview'
+alias myip='curl http://ipecho.net/plain; echo'
+alias tar_x='tar -xvf'
+alias tar_c='tar -cvf'
+alias tar_xz='tar -xzvf'
+alias tar_cz='tar -czvf'
+alias gitdiff='git diff --color-words'
+alias gitdiff2='git diff --color-words --no-index'
+alias gl='echo "Good luck!"'
+alias hf='echo "Have fun!"'
+alias gg='echo "Good game!"'
+alias wp='echo "Well played!"'
+alias glhf='echo "Good luck, have fun!"'
+alias ggwp='echo "Good game, well played!"'
+alias lol='echo ERROR: File system not found.'
+
+# Home
+#alias pi='ssh -Y pi@192.168.1.100'
+alias pi='ssh -Y pi@raspberrypi.local'
+
