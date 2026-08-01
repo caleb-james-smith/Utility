@@ -72,6 +72,7 @@ Host github.com
     Port 443
     HostName ssh.github.com
     IdentityFile ~/.ssh/id_ed25519
+    AddKeysToAgent yes
     PasswordAuthentication yes
     PubkeyAuthentication yes
     ForwardX11 no

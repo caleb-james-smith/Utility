@@ -11,9 +11,9 @@ ln -s Utility/scripts/* .
 ```
 
 Make sure that your `~/bin` directory is in your `PATH`.
-For example, on macOS, you can add this line to `~/.bash_profile` (replace <user_name> with your user name):
+For example, on macOS, you can add this line to `~/.bash_profile`:
 ```
-export PATH="/Users/<user_name>/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 ```
 Then, you can `source ~/.bash_profile`:
 ```
