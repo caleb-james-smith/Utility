@@ -39,6 +39,7 @@ rsync -az vim-colorschemes/colors .
 Then, Vim should load the custom version of delek (for example, `~/.vim/colors/delek.vim`)
 instead of the default version (for example, `/usr/share/vim/vim91/colors/delek.vim`),
 which should fix the white background issue for dark background terminals.
+Use the command `:scriptnames` in Vim to view the scripts that Vim sources in order.
 
 ## Using scripts
 
