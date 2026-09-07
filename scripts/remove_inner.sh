@@ -1,15 +1,23 @@
 #!/bin/bash
-# rename_files.sh 
+# remove_inner.sh
 
-# Inputs: input directory, file extension, and prefix
-# Output: adds prefix to matching files (files in directory with extension)
+# Inputs: input directory and file extension
+# Output: removes inner section of file name from matching files 
+
+# - inner section of file name: everything between the underscore and the file extension
+# - matching files: files in directory with extension
+
+# Syntax:
+# ./remove_inner.sh directory extension
 
 # Example:
-# ./rename_files.sh directory extension prefix
+# ./remove_inner.sh images png
+# 01_abc.png ---> 01.png
+# 02_abc.png ---> 02.png
+# 03_abc.png ---> 03.png
 
 INPUT_DIR=$1
 EXTENSION=$2
-PREFIX=$3
 
 # Check if INPUT_DIR is empty
 if [[ -z "$INPUT_DIR" ]]; then
@@ -25,13 +33,6 @@ if [[ -z "$EXTENSION" ]]; then
     exit 1
 fi
 
-# Check if PREFIX is empty
-if [[ -z "$PREFIX" ]]; then
-    echo "ERROR: PREFIX is empty."
-    echo "Please provide a prefix as the third argument."
-    exit 1
-fi
-
 # Check if directory does not exist
 if [[ ! -d "$INPUT_DIR" ]]; then
     echo "ERROR: The input directory '${INPUT_DIR}' does not exist."
@@ -41,7 +42,6 @@ fi
 
 echo "Input directory: ${INPUT_DIR}"
 echo "File extension: ${EXTENSION}"
-echo "Prefix: ${PREFIX}"
 
 # Go to directory
 cd ${INPUT_DIR}
@@ -50,8 +50,9 @@ cd ${INPUT_DIR}
 for file in *.${EXTENSION}; do
     # Confirm that file exists; fixes issue when no files are present.
     if [[ -f "$file" ]]; then
-        echo " - Moving ${file} to ${PREFIX}${file}"
-        mv ${file} ${PREFIX}${file}
+        # Remove inner section of file name
+        echo " - Moving ${file} to ${file%%_*}.${EXTENSION}"
+        mv "${file}" "${file%%_*}.${EXTENSION}"
     fi
 done
 

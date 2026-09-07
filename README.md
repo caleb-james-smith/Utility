@@ -11,14 +11,35 @@ ln -s Utility/scripts/* .
 ```
 
 Make sure that your `~/bin` directory is in your `PATH`.
-For example, on macOS, you can add this line to `~/.bash_profile` (replace <user_name> with your user name):
+For example, on macOS, you can add this line to `~/.bash_profile`:
 ```
-export PATH="/Users/<user_name>/bin:$PATH"
+export PATH="$HOME/bin:$PATH"
 ```
 Then, you can `source ~/.bash_profile`:
 ```
 source ~/.bash_profile
 ```
+
+## Vim
+
+There are custom colorschemes for Vim [here](https://github.com/flazz/vim-colorschemes);
+I use the custom delek colorscheme from this repository.
+
+**Important:** The delek colorscheme from this repository is *significantly* different than the default version from Vim!
+I have often run into an annoying white background issue when using the main version of delek from Vim on dark background terminals.
+
+Run the following commands to install the colorscheme repository:
+```
+mkdir -p ~/.vim
+cd ~/.vim
+git clone https://github.com/flazz/vim-colorschemes.git
+rsync -az vim-colorschemes/colors .
+```
+
+Then, Vim should load the custom version of delek (for example, `~/.vim/colors/delek.vim`)
+instead of the default version (for example, `/usr/share/vim/vim91/colors/delek.vim`),
+which should fix the white background issue for dark background terminals.
+Use the command `:scriptnames` in Vim to view the scripts that Vim sources in order.
 
 ## Using scripts
 

@@ -1,0 +1,35 @@
+Host raspberrypi.local
+    User pi
+    IdentityFile ~/.ssh/id_ed25519
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+
+Host github.com
+    User git
+    Port 443
+    HostName ssh.github.com
+    IdentityFile ~/.ssh/id_ed25519
+    AddKeysToAgent yes
+    PasswordAuthentication yes
+    PubkeyAuthentication yes
+    ForwardX11 no
+    ForwardX11Trusted no
+
+# Global default settings 
+Host *
+    GSSAPIAuthentication yes
+    GSSAPIDelegateCredentials yes
+    ForwardX11Trusted yes
+    ForwardAgent yes
+    ForwardX11 yes
+    ForwardX11Timeout 1w
+    Compression yes
+    ServerAliveInterval 60
+    ServerAliveCountMax 10
+    TCPKeepAlive yes
+    AddKeysToAgent yes
+    IdentityFile ~/.ssh/id_ed25519
+    ControlMaster auto
+    ControlPath ~/.ssh/sockets/%r@%h-%p
+    ControlPersist 600
+
