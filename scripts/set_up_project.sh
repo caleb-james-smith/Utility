@@ -16,6 +16,7 @@ echo "Setting up project..."
 
 mkdir -p ${AUTHOR}
 
+mkdir -p ${AUTHOR}/00_${AUTHOR}_COVER
 mkdir -p ${AUTHOR}/00_${AUTHOR}_RAW
 mkdir -p ${AUTHOR}/01_${AUTHOR}_PEtoCE
 mkdir -p ${AUTHOR}/02_${AUTHOR}_CEtoAU
